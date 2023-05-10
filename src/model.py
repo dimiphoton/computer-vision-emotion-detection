@@ -3,6 +3,37 @@ from tensorflow.keras.layers import Dense, GlobalAveragePooling2D
 from tensorflow.keras.models import Model
 from config import NUM_CLASSES, INITIAL_LR
 
+import tensorflow as tf
+from tensorflow.keras.layers import Conv2D, MaxPooling2D, Dense, Flatten, Dropout, BatchNormalization
+from tensorflow.keras.models import Sequential
+
+def create_small_model(input_shape=(48, 48, 1), num_classes=7):
+    model = Sequential([
+        Conv2D(32, kernel_size=(3, 3), activation='relu', input_shape=input_shape),
+        BatchNormalization(),
+        MaxPooling2D(pool_size=(2, 2)),
+        
+        Conv2D(64, kernel_size=(3, 3), activation='relu'),
+        BatchNormalization(),
+        MaxPooling2D(pool_size=(2, 2)),
+        
+        Conv2D(128, kernel_size=(3, 3), activation='relu'),
+        BatchNormalization(),
+        MaxPooling2D(pool_size=(2, 2)),
+        
+        Flatten(),
+        Dense(256, activation='relu'),
+        Dropout(0.5),
+        Dense(num_classes, activation='softmax')
+    ])
+
+    model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
+    return model
+
+
+
+
+
 def create_model():
     """
     Create the emotion recognition model based on EfficientNet-B0.
