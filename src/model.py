@@ -1,7 +1,7 @@
 import tensorflow as tf
 from tensorflow.keras.layers import Dense, GlobalAveragePooling2D
 from tensorflow.keras.models import Model
-from src.config import NUM_CLASSES
+from config import NUM_CLASSES, INITIAL_LR
 
 def create_model():
     """

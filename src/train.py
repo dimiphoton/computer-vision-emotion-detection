@@ -1,7 +1,8 @@
 import tensorflow as tf
-from src.config import EPOCHS, INITIAL_LR, FINE_TUNE_LR, MODEL_DIR, MODEL_NAME
-from src.data_loader import load_data
-from src.model import create_model
+from config import EPOCHS, INITIAL_LR, FINE_TUNE_LR, MODEL_DIR, MODEL_NAME
+from data_loader import load_data
+from model import create_model
+import os
 
 def train_model():
     """

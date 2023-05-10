@@ -2,7 +2,7 @@ import os
 import numpy as np
 import tensorflow as tf
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
-from src.config import IMAGE_SIZE, BATCH_SIZE, TRAIN_DIR, TEST_DIR
+from config import IMAGE_SIZE, BATCH_SIZE, TRAIN_DIR, TEST_DIR
 
 def load_data():
     """

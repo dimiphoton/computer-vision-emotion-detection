@@ -2,8 +2,8 @@ import os
 import numpy as np
 from tensorflow.keras.models import load_model
 from sklearn.metrics import classification_report, confusion_matrix
-from src.config import MODEL_DIR, MODEL_NAME
-from src.data_loader import load_data
+from config import MODEL_DIR, MODEL_NAME
+from data_loader import load_data
 
 def evaluate_model():
     """
